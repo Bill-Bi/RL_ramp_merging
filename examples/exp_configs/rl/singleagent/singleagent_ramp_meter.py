@@ -21,7 +21,7 @@ EXP_NUM = 2
 # time horizon of a single rollout
 HORIZON = 600
 # number of rollouts per training iteration
-N_ROLLOUTS = 10
+N_ROLLOUTS = 20
 # number of parallel workers
 N_CPUS = 10
 
