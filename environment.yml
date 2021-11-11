@@ -3,6 +3,7 @@ name: flow
 dependencies:
     - python==3.7.3
     - pip:
+	- pip
         - scipy==1.1.0
         - lxml==4.4.1
         - six==1.11.0
