@@ -47,7 +47,7 @@ def parse_args(args):
         '--num_cpus', type=int, default=1,
         help='How many CPUs to use')
     parser.add_argument(
-        '--num_steps', type=int, default=5000,
+        '--num_steps', type=int, default=1000,
         help='How many total steps to perform learning over')
     parser.add_argument(
         '--rollout_size', type=int, default=1000,

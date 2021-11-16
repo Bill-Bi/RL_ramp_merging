@@ -142,9 +142,15 @@ class RampMeterPOEnv(Env):
         for i, rl_id in enumerate(self.rl_veh):
             this_speed = self.k.vehicle.get_speed(rl_id)
             lead_id = self.k.vehicle.get_leader(rl_id)
-            follower = self.k.vehicle.get_follower(rl_id)
+            follow_id = self.k.vehicle.get_follower(rl_id)
 
-            IDs = [rl_id, lead_id, follower]
+            if lead_id not in observed_id:
+                self.leader.append(lead_id)
+                
+            if follow_id not in observed_id:
+                self.follower.append(follow_id)
+
+            IDs = [rl_id, lead_id, follow_id]
             positions = []
             speeds = []
 
@@ -184,32 +190,56 @@ class RampMeterPOEnv(Env):
 
     def compute_reward(self, rl_actions, **kwargs):
         """See class definition."""
-        if self.env_params.evaluate:
-            return np.mean(self.k.vehicle.get_speed(self.k.vehicle.get_ids()))
-        else:
-            # return a reward of 0 if a collision occurred
-            if kwargs["fail"]:
-                return 0
+        # return a reward of 0 if a collision occurred
+        if kwargs["fail"]:
+            return 0
 
-            # reward high system-level velocities
-            cost1 = rewards.desired_velocity(self, fail=kwargs["fail"])
+        # reward high system-level velocities
+        cost1 = rewards.desired_velocity(self, fail=kwargs["fail"])
 
-            # penalize small time headways
-            cost2 = 0
-            t_min = 1  # smallest acceptable time headway
-            for rl_id in self.rl_veh:
-                lead_id = self.k.vehicle.get_leader(rl_id)
-                if lead_id not in ["", None] \
-                        and self.k.vehicle.get_speed(rl_id) > 0:
-                    t_headway = max(
-                        self.k.vehicle.get_headway(rl_id) /
-                        self.k.vehicle.get_speed(rl_id), 0)
-                    cost2 += min((t_headway - t_min) / t_min, 0)
+        # penalize small time headways
+        cost2 = 0
+        t_min = 1  # smallest acceptable time headway
 
-            # weights for cost1, cost2, and cost3, respectively
-            eta1, eta2 = 1.00, 0.10
+        # penalize emergency brakes
+        cost3 = 0
+        min_acc = -5
 
-            return max(eta1 * cost1 + eta2 * cost2, 0)
+        for rl_id in self.rl_veh:
+            if rl_id not in ["", None] \
+                    and self.k.vehicle.get_speed(rl_id) > 0:
+                rl_acc = self.k.vehicle.get_accel(rl_id)
+                if rl_acc and rl_acc < min_acc:
+                    cost3 -= (min_acc - rl_acc)
+
+            lead_id = self.k.vehicle.get_leader(rl_id)
+            follow_id = self.k.vehicle.get_follower(rl_id)
+            if lead_id not in ["", None] \
+                    and self.k.vehicle.get_speed(rl_id) > 0:
+
+                lead_acc = self.k.vehicle.get_accel(lead_id)
+                if lead_acc and lead_acc < min_acc:
+                    cost3 -= (min_acc - lead_acc)
+
+                t_headway = max(
+                    self.k.vehicle.get_headway(rl_id) /
+                    self.k.vehicle.get_speed(rl_id), 0)
+                cost2 += min((t_headway - t_min) / t_min, 0)
+
+            if follow_id not in ["", None] \
+                    and self.k.vehicle.get_speed(follow_id) > 0:
+
+                follow_acc = self.k.vehicle.get_accel(follow_id)
+                if follow_acc and follow_acc < min_acc:
+                    cost3 -= (min_acc - follow_acc)
+
+        if cost3 != 0:
+            print(cost3)
+       
+        # weights for cost1, cost2, and cost3, respectively
+        eta1, eta2, eta3 = 1.00, 0.10, 0.50
+
+        return max(eta1 * cost1 + eta2 * cost2 + eta3 * cost3, 0)
 
     def additional_command(self):
         """See parent class.
