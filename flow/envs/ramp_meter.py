@@ -232,9 +232,6 @@ class RampMeterPOEnv(Env):
                 follow_acc = self.k.vehicle.get_accel(follow_id)
                 if follow_acc and follow_acc < min_acc:
                     cost3 -= (min_acc - follow_acc)
-
-        if cost3 != 0:
-            print(cost3)
        
         # weights for cost1, cost2, and cost3, respectively
         eta1, eta2, eta3 = 1.00, 0.10, 0.50
