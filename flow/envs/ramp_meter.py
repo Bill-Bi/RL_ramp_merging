@@ -210,7 +210,7 @@ class RampMeterPOEnv(Env):
                     and self.k.vehicle.get_speed(rl_id) > 0:
                 rl_acc = self.k.vehicle.get_accel(rl_id)
                 if rl_acc and rl_acc < min_acc:
-                    cost3 -= (min_acc - rl_acc)
+                    cost3 -= (min_acc - rl_acc)**2
 
             lead_id = self.k.vehicle.get_leader(rl_id)
             follow_id = self.k.vehicle.get_follower(rl_id)
@@ -219,7 +219,7 @@ class RampMeterPOEnv(Env):
 
                 lead_acc = self.k.vehicle.get_accel(lead_id)
                 if lead_acc and lead_acc < min_acc:
-                    cost3 -= (min_acc - lead_acc)
+                    cost3 -= (min_acc - lead_acc)**2
 
                 t_headway = max(
                     self.k.vehicle.get_headway(rl_id) /
@@ -231,11 +231,10 @@ class RampMeterPOEnv(Env):
 
                 follow_acc = self.k.vehicle.get_accel(follow_id)
                 if follow_acc and follow_acc < min_acc:
-                    cost3 -= (min_acc - follow_acc)
+                    cost3 -= (min_acc - follow_acc)**2
        
         # weights for cost1, cost2, and cost3, respectively
         eta1, eta2, eta3 = 1.00, 0.10, 0.50
-
         return max(eta1 * cost1 + eta2 * cost2 + eta3 * cost3, 0)
 
     def additional_command(self):
