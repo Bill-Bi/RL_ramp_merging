@@ -163,13 +163,13 @@ class RampMeterPOEnv(Env):
                 else:
                     observed_id.add(cur_id)
 
-                cur_edge = self.k.vehicle.get_position(rl_id)
+                cur_edge = self.k.vehicle.get_edge(cur_id)
                 if cur_edge == "left": # within the merging session
-                    positions.append(self.k.vehicle.get_position(rl_id))
+                    positions.append(self.k.vehicle.get_position(cur_id))
                 elif cur_edge == "inflow_highway": # before the merging session
-                    positions.append(self.k.vehicle.get_position(rl_id) - 100) # negative number before the merging session
+                    positions.append(self.k.vehicle.get_position(cur_id) - 100) # negative number before the merging session
                 elif cur_edge == "center": # after the merging session
-                    positions.append(200 + self.k.vehicle.get_position(rl_id)) # distance beyond the merging session
+                    positions.append(200 + self.k.vehicle.get_position(cur_id)) # distance beyond the merging session
                 else:
                     positions.append(0)
 
@@ -183,8 +183,6 @@ class RampMeterPOEnv(Env):
             # position of the RL vehicle, lead vehicle and following vehicle
             for j in range(3):
                 observation[6 * i + j + 3] = positions[j]
-
-            
 
         return observation
 
@@ -206,35 +204,30 @@ class RampMeterPOEnv(Env):
         min_acc = -5
 
         for rl_id in self.rl_veh:
-            if rl_id not in ["", None] \
-                    and self.k.vehicle.get_speed(rl_id) > 0:
-                rl_acc = self.k.vehicle.get_accel(rl_id)
-                if rl_acc and rl_acc < min_acc:
-                    cost3 -= (min_acc - rl_acc)**2
-
             lead_id = self.k.vehicle.get_leader(rl_id)
             follow_id = self.k.vehicle.get_follower(rl_id)
             if lead_id not in ["", None] \
                     and self.k.vehicle.get_speed(rl_id) > 0:
 
-                lead_acc = self.k.vehicle.get_accel(lead_id)
-                if lead_acc and lead_acc < min_acc:
-                    cost3 -= (min_acc - lead_acc)**2
-
                 t_headway = max(
                     self.k.vehicle.get_headway(rl_id) /
                     self.k.vehicle.get_speed(rl_id), 0)
                 cost2 += min((t_headway - t_min) / t_min, 0)
-
-            if follow_id not in ["", None] \
-                    and self.k.vehicle.get_speed(follow_id) > 0:
-
-                follow_acc = self.k.vehicle.get_accel(follow_id)
-                if follow_acc and follow_acc < min_acc:
-                    cost3 -= (min_acc - follow_acc)**2
+        
+        ids = self.k.vehicle.get_ids()
+        for idd in ids:
+            cur_acc = self.k.vehicle.get_accel(idd)
+            if cur_acc and cur_acc < -9:
+                print(cur_acc)
+                print("------")
+                return 0
+            elif cur_acc and cur_acc < min_acc:
+                print(cur_acc)
+                print("=====")
+                cost3 -= (min_acc - cur_acc)**2
        
         # weights for cost1, cost2, and cost3, respectively
-        eta1, eta2, eta3 = 1.00, 0.10, 0.50
+        eta1, eta2, eta3 = 1.00, 0.10, 1.00
         return max(eta1 * cost1 + eta2 * cost2 + eta3 * cost3, 0)
 
     def additional_command(self):
