@@ -218,12 +218,8 @@ class RampMeterPOEnv(Env):
         for idd in ids:
             cur_acc = self.k.vehicle.get_accel(idd)
             if cur_acc and cur_acc < -9:
-                print(cur_acc)
-                print("------")
                 return 0
             elif cur_acc and cur_acc < min_acc:
-                print(cur_acc)
-                print("=====")
                 cost3 -= (min_acc - cur_acc)**2
        
         # weights for cost1, cost2, and cost3, respectively
