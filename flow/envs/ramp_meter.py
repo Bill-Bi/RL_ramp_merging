@@ -25,7 +25,6 @@ ADDITIONAL_ENV_PARAMS = {
     "num_rl": 5,
 }
 
-
 class RampMeterPOEnv(Env):
     """Partially observable merge environment.
 
@@ -201,7 +200,7 @@ class RampMeterPOEnv(Env):
 
         # penalize emergency brakes
         cost3 = 0
-        min_acc = -5
+        low_acc = -3
 
         for rl_id in self.rl_veh:
             lead_id = self.k.vehicle.get_leader(rl_id)
@@ -217,13 +216,11 @@ class RampMeterPOEnv(Env):
         ids = self.k.vehicle.get_ids()
         for idd in ids:
             cur_acc = self.k.vehicle.get_accel(idd)
-            if cur_acc and cur_acc < -9:
-                return 0
-            elif cur_acc and cur_acc < min_acc:
-                cost3 -= (min_acc - cur_acc)**2
-       
+            if cur_acc and cur_acc < low_acc:
+                cost3 -= (low_acc - cur_acc)**2
+                
         # weights for cost1, cost2, and cost3, respectively
-        eta1, eta2, eta3 = 1.00, 0.10, 1.00
+        eta1, eta2, eta3 = 1.00, 0.10, 0.10
         return max(eta1 * cost1 + eta2 * cost2 + eta3 * cost3, 0)
 
     def additional_command(self):
