@@ -200,7 +200,7 @@ class RampMeterPOEnv(Env):
 
         # penalize emergency brakes
         cost3 = 0
-        low_acc = -3
+        low_acc = -7
 
         for rl_id in self.rl_veh:
             lead_id = self.k.vehicle.get_leader(rl_id)
@@ -218,9 +218,9 @@ class RampMeterPOEnv(Env):
             cur_acc = self.k.vehicle.get_accel(idd)
             if cur_acc and cur_acc < low_acc:
                 cost3 -= (low_acc - cur_acc)**2
-                
+
         # weights for cost1, cost2, and cost3, respectively
-        eta1, eta2, eta3 = 1.00, 0.10, 0.10
+        eta1, eta2, eta3 = 1.00, 0.10, 0.50
         return max(eta1 * cost1 + eta2 * cost2 + eta3 * cost3, 0)
 
     def additional_command(self):
