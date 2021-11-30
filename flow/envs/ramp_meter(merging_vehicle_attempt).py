@@ -106,7 +106,7 @@ class RampMeterPOEnv(Env):
     @property
     def observation_space(self):
         """See class definition."""
-        return Box(low=-2000, high=2000, shape=(6 * self.num_rl, ), dtype=np.float32)
+        return Box(low=-2000, high=2000, shape=(6 * self.num_rl + 3, ), dtype=np.float32)
 
     """ Treat the ramp meter as a vehicles, turn continuous action into discret signal"""
     def _apply_rl_actions(self, rl_actions):
@@ -137,7 +137,7 @@ class RampMeterPOEnv(Env):
 
         observed_id = set()
 
-        observation = [0 for _ in range(6 * self.num_rl)] # 3 extra space for the position of the merging vehicles
+        observation = [0 for _ in range(6 * self.num_rl + 3)] # 3 extra space for the position of the merging vehicles
         for i, rl_id in enumerate(self.rl_veh):
             this_speed = self.k.vehicle.get_speed(rl_id)
             lead_id = self.k.vehicle.get_leader(rl_id)
@@ -182,6 +182,22 @@ class RampMeterPOEnv(Env):
             # position of the RL vehicle, lead vehicle and following vehicle
             for j in range(3):
                 observation[6 * i + j + 3] = positions[j]
+
+        # take the positions of the merge vehicles
+        merge_ids = self.k.vehicle.get_ids_by_edge("inflow_merge")
+        merge_id_count = 0
+        if len(merge_ids) >= 3:
+            print("-------------")
+            print(merge_ids)
+            for merge_id in merge_ids:
+                print("id: ", merge_id, " position: ", self.k.vehicle.get_position(merge_id))
+
+        for merge_id in merge_ids:
+            if merge_id_count >= 3:
+                break
+            observation[6 * self.num_rl + merge_id_count] = self.k.vehicle.get_position(merge_id)
+            merge_id_count = merge_id_count + 1
+
 
         return observation
 

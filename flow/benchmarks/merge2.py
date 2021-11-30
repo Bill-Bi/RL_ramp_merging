@@ -21,6 +21,7 @@ from flow.controllers import SimCarFollowingController, RLController
 HORIZON = 750
 # inflow rate at the highway
 FLOW_RATE = 2000
+FLOW_PROBABILITY = 2000 / 3600
 # percent of autonomous vehicles
 RL_PENETRATION = 0.333
 # num_rl term (see ADDITIONAL_ENV_PARAMs)
@@ -56,19 +57,22 @@ inflow = InFlows()
 inflow.add(
     veh_type="human",
     edge="inflow_highway",
-    vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
+    # vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
+    probability = (1 - RL_PENETRATION) * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 inflow.add(
     veh_type="rl",
     edge="inflow_highway",
-    vehs_per_hour=RL_PENETRATION * FLOW_RATE,
+    # vehs_per_hour=RL_PENETRATION * FLOW_RATE,
+    probability = RL_PENETRATION * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 inflow.add(
     veh_type="human",
     edge="inflow_merge",
-    vehs_per_hour=100,
+    # vehs_per_hour=100,
+    probability = 100 / 3600,
     departLane="free",
     departSpeed=7.5)
 
