@@ -76,15 +76,15 @@ inflow = InFlows()
 inflow.add(
     veh_type="human",
     edge="inflow_highway",
-    vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
-    # probability = (1 - RL_PENETRATION) * FLOW_PROBABILITY,
+    # vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
+    probability = (1 - RL_PENETRATION) * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 inflow.add(
     veh_type="rl",
     edge="inflow_highway",
-    vehs_per_hour=RL_PENETRATION * FLOW_RATE,
-    # probability = RL_PENETRATION * FLOW_PROBABILITY,
+    # vehs_per_hour=RL_PENETRATION * FLOW_RATE,
+    probability = RL_PENETRATION * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 # inflow.add(
