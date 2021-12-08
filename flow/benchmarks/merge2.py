@@ -36,18 +36,35 @@ additional_net_params["pre_merge_length"] = 500
 
 # RL vehicles constitute 5% of the total number of vehicles
 vehicles = VehicleParams()
+# vehicles.add(
+#     veh_id="human",
+#     acceleration_controller=(SimCarFollowingController, {}),
+#     car_following_params=SumoCarFollowingParams(
+#         speed_mode=9,
+#     ),
+#     num_vehicles=5)
+# vehicles.add(
+#     veh_id="rl",
+#     acceleration_controller=(RLController, {}),
+#     car_following_params=SumoCarFollowingParams(
+#         speed_mode=9,
+#     ),
+#     num_vehicles=0)
+
 vehicles.add(
     veh_id="human",
-    acceleration_controller=(SimCarFollowingController, {}),
+    acceleration_controller=(IDMController, {
+        "noise": 0.2
+    }),
     car_following_params=SumoCarFollowingParams(
-        speed_mode=9,
+        speed_mode="obey_safe_speed",
     ),
     num_vehicles=5)
 vehicles.add(
     veh_id="rl",
     acceleration_controller=(RLController, {}),
     car_following_params=SumoCarFollowingParams(
-        speed_mode=9,
+        speed_mode="obey_safe_speed",
     ),
     num_vehicles=0)
 
@@ -57,15 +74,15 @@ inflow = InFlows()
 inflow.add(
     veh_type="human",
     edge="inflow_highway",
-    # vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
-    probability = (1 - RL_PENETRATION) * FLOW_PROBABILITY,
+    vehs_per_hour=(1 - RL_PENETRATION) * FLOW_RATE,
+    # probability = (1 - RL_PENETRATION) * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 inflow.add(
     veh_type="rl",
     edge="inflow_highway",
-    # vehs_per_hour=RL_PENETRATION * FLOW_RATE,
-    probability = RL_PENETRATION * FLOW_PROBABILITY,
+    vehs_per_hour=RL_PENETRATION * FLOW_RATE,
+    # probability = RL_PENETRATION * FLOW_PROBABILITY,
     departLane="free",
     departSpeed=10)
 inflow.add(

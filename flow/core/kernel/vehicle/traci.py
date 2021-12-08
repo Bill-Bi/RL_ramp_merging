@@ -1129,6 +1129,13 @@ class TraCIVehicle(KernelVehicle):
         """See parent class."""
         self.kernel_api.vehicle.setMaxSpeed(veh_id, max_speed)
 
+
+    def get_speed(self, veh_id, error=-1001):
+        """See parent class."""
+        if isinstance(veh_id, (list, np.ndarray)):
+            return [self.get_speed(vehID, error) for vehID in veh_id]
+        return self.__sumo_obs.get(veh_id, {}).get(tc.VAR_SPEED, error)
+
     def get_accel(self, veh_id, noise=True, failsafe=True):
         """See parent class."""
         metric_name = 'accel'
