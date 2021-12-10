@@ -19,7 +19,7 @@ See [our website](https://flow-project.github.io/) for more information on the a
 - [Binder Build (beta)](https://mybinder.org/v2/gh/flow-project/flow/binder)
 
 ## Running the code:
-After installing the FLOW environment, go to the `example/` folder and run:
+After installing the FLOW environment, go to the `example/` folder and run:  
 `conda activate flow`  
 `python train.py singleagent_ramp_meter --rl_trainer "rllib"` for trainning  
 
