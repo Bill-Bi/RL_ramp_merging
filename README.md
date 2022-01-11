@@ -25,6 +25,12 @@
 3. Go to the `flow/flow/visualize/` folder and run: `conda activate flow`
 4. Given the example information colleceted above inside the `ray_result` folder, run `python ./visualizer_rllib.py ~/ray_results/stabilizing_open_network_merges/merge_1 500`, where `merge_1` is the folder name selected above, and the `500` is the number of the selected checkpoint. 
 
+## Visualization for modified highway merging with ramp meter scenario:
+1. Selet the folder inside the `ray_result` mentioned above, e.g. `ray_results/ramp_meter/merge_2`, note: `merge_2` is an arbitrary name here.
+2. Within the selected folder, select the checkpoint folder that you want to visualize, e.g. `ray_results/ramp_meter/ramp_meter_1/700`, where 700 is the number of the selected checkpoint.
+3. Go to the `flow/flow/visualize/` folder and run: `conda activate flow`
+4. Given the example information colleceted above inside the `ray_result` folder, run `python ./visualizer_rllib.py ~/ray_results/ramp_meter/merge_2 700`, where `merge_2` is the folder name selected above, and the `700` is the number of the selected checkpoint. 
+
 ## Modifications from the original Flow (how I created the new highway merging with ramp meter scenario):
 1. Created `flow/examples/exp_configs/rl/singleagent/singleagent_ramp_meter.py`, which indicates the training parameters, vehicle parameters, and flow parameters.
 2. Created `flow/flow/envs/ramp_meter.py`, which determines the Reinforcement Learning functions including States, Actions, Rewards, etc.
