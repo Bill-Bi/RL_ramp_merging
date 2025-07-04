@@ -1,4 +1,4 @@
-"""Contains all available networks in Flow."""
+"""Contains all available network classes in Flow."""
 
 # base network class
 from flow.networks.base import Network

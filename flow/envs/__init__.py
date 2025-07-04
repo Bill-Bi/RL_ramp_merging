@@ -1,4 +1,4 @@
-"""Contains all callable environments in Flow."""
+"""Contains all callable environment classes in Flow."""
 from flow.envs.base import Env
 from flow.envs.bay_bridge import BayBridgeEnv
 from flow.envs.bottleneck import BottleneckAccelEnv, BottleneckEnv, \

@@ -9,7 +9,7 @@
 #sudo apt-get install -y python3-dev
 #sudo pip3 install cmake cython
 
-echo "Installing sumo binaries"
+echo "Installing sumo binary files"
 mkdir -p $HOME/sumo_binaries/bin
 pushd $HOME/sumo_binaries/bin
 wget https://akreidieh.s3.amazonaws.com/sumo/flow-0.4.0/binaries-ubuntu1804.tar.xz

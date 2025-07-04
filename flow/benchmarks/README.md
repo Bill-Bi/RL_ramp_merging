@@ -1,6 +1,6 @@
 # Flow Benchmarks
 
-This folder presents several several reinforcement learning benchmarks for 
+This folder presents several reinforcement learning benchmarks for 
 training traffic lights and autonomous vehicles in a variety of mixed-autonomy 
 traffic settings.
 

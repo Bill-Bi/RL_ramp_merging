@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Preparing to make and save movies"
+echo "Preparing to create and save movies"
 
 ##################################################
 # CONSTANTS

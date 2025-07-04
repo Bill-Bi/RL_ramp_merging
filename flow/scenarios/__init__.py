@@ -1,4 +1,4 @@
-"""Empty init file to handle deprecations."""
+"""Empty init file to handle deprecation warnings."""
 
 # base scenario class
 from flow.scenarios.base import Scenario

@@ -1,6 +1,6 @@
 """Contains a list of custom controllers.
 
-These controllers can be used to modify the dynamics behavior of human-driven
+These controllers can be used to modify the dynamic behavior of human-driven
 vehicles in the network.
 
 In addition, the RLController class can be used to add vehicles whose actions

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Running all benchmarks"
+echo "Running all benchmark tests"
 
 declare -a benchmarks=(
                         "bottleneck0" "bottleneck1" "bottleneck2"
