@@ -39,7 +39,7 @@ class AimsunTemplate(object):
             'duplicate_template'
         (3) to create a new blank template, see 'new_template'
         (4) if the template you want to use is already open in the Aimsun
-            window, then you don't have to do annything
+            window, then you don't have to do anything
 
         In cases (2) and (3), see 'save' to then save the template.
 

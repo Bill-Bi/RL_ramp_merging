@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # flake8: noqa
-"""Setup script for the Flow repository."""
+"""Setup script for the Flow repository (installation script)."""
 from os.path import dirname, realpath
 from setuptools import find_packages, setup, Distribution
 import setuptools.command.build_ext as _build_ext

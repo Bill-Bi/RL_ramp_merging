@@ -1,4 +1,4 @@
-"""Empty init file to ensure documentation for multi-agent envs is created."""
+"""Empty init file to ensure documentation for multi-agent environments is created."""
 
 from flow.multiagent_envs.multiagent_env import MultiEnv
 from flow.multiagent_envs.loop.wave_attenuation import \

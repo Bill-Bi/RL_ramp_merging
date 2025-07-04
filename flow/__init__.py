@@ -1,4 +1,4 @@
-"""Returns features of the Flow repository (e.g. version number)."""
+"""Provides features and metadata for the Flow repository (e.g. version number)."""
 
 from .version import __version__ as v
 

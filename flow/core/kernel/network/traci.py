@@ -218,7 +218,7 @@ class TraCIKernelNetwork(BaseKernelNetwork):
 
         Deletes the xml files that were created by the network class. This
         is to prevent them from building up in the debug folder. Note that in
-        the case of import .net.xml files we do not want to delete them.
+        the case of imported .net.xml files we do not want to delete them.
         """
         # Those files are being created even if self.network.net_params.template is a path to .net.xml file
         files = [self.cfg_path + self.guifn,

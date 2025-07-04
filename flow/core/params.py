@@ -806,7 +806,7 @@ class SumoCarFollowingParams:
          * "obey_safe_speed": prevents vehicles from colliding
            longitudinally, but can fail in cases where vehicles are allowed
            to lane change
-         * "no_collide": Human and RL cars are preventing from reaching
+         * "no_collide": Human and RL cars are prevented from reaching
            speeds that may cause crashes (also serves as a failsafe). Note:
            this may lead to collisions in complex networks
          * "aggressive": Human and RL cars are not limited by sumo with

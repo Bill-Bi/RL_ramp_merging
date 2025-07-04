@@ -8,7 +8,7 @@ repository is migrating to a new SUMO version.
         
         git clone https://github.com/eclipse/sumo.git
 
-2. Checkout the version of SUMO you with to create wheels and binaries of:
+2. Checkout the version of SUMO you wish to create wheels and binaries of:
 
         cd sumo
         git checkout <VERSION_NUMBER>

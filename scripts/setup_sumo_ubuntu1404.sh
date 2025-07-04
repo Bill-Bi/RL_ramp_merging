@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Installing system dependencies for open-ai baselines"
 sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
-echo "Installing system dependencies for SUMO"
+echo "Installing system dependencies for SUMO simulation"
 sudo apt-get update
 sudo apt-get install -y subversion autoconf build-essential libtool
 sudo apt-get install -y libxerces-c3.1 libxerces-c3-dev libproj-dev

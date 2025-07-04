@@ -2,7 +2,7 @@
 ## Description:
 1. Designed and trained a deep reinforcement learning model to perform single-agent motion planning for vehicles involved in a highway ramp merging scenario using Ray and SUMO (Simulation of Urban MObility), based on an open source project called FLOW.
 
-2. Designed and implemented safe-driven features for the model by applying an intelligent ramp meter in the merging scenario.
+2. Designed and implemented safety-driven features for the model by applying an intelligent ramp meter in the merging scenario.
 
 
 ## Flow

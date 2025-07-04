@@ -1,5 +1,5 @@
 # Setting up an rllib cluster
-- cd into scripts
+- cd into the scripts directory
 - If you haven't set up before, comment out file_mounts and setup_commands
 - run ray create_or_update ray_autoscale.yaml
 - Enter into the ~/.ssh and run  ssh-keygen -y -f <NAME OF RAY KEY.pem>

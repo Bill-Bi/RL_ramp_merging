@@ -1,1 +1,1 @@
-"""Empty init file to ensure that the examples documentation builds."""
+"""Empty init file to ensure that the examples module documentation builds."""

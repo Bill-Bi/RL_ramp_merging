@@ -1,4 +1,4 @@
-"""Default config variables, which may be overridden by a user config."""
+"""Default configuration variables, which may be overridden by a user config."""
 import os.path as osp
 import os
 

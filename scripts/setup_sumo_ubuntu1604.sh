@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Installing system dependencies for SUMO"
+echo "Installing system dependencies for SUMO simulation"
 sudo apt-get update
 sudo apt-get install -y cmake swig libgtest-dev python-pygame python-scipy
 sudo apt-get install -y autoconf libtool pkg-config libgdal-dev libxerces-c-dev

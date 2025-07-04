@@ -1,4 +1,4 @@
-"""Empty init file to ensure documentation for the simulation is created."""
+"""Empty init file to ensure documentation for the simulation module is created."""
 
 from flow.core.kernel.simulation.base import KernelSimulation
 from flow.core.kernel.simulation.traci import TraCISimulation

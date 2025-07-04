@@ -1,1 +1,1 @@
-"""Empty init file to ensure documentation for benchmarks is created."""
+"""Empty init file to ensure documentation for the benchmarks module is created."""

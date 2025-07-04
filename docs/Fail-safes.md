@@ -1,5 +1,5 @@
 ## Fail-safes
-- All car controllers come equipped with a fail-safe rule wherein cars are not allowed to move at a speed that would cause them to crash if the car in front of them suddenly started breaking with max acceleration. If they attempt to do so, they will be reset to move at $v_{safe}$ where $v_{safe}$ is the speed such that the cars will come to rest at the same point.
+- All car controllers come equipped with a fail-safe rule wherein cars are not allowed to move at a speed that would cause them to crash if the car in front of them suddenly started braking with max acceleration. If they attempt to do so, they will be reset to move at $v_{safe}$ where $v_{safe}$ is the speed such that the cars will come to rest at the same point.
 - $v_{safe}$ is calculated like so:
 	- Consider a car with speed $v_{i}$ at position $x_i$ following another car at position $x_{i+1}$ and velocity $v_{i+1}$. 
 	- **Because of the discretization, the front cars speed that you need to be concerned about is actually its speed one time-step later. So, rather than assume the front car has velocity $v_{i+1}$ assume it could have speed $v_{i+1} - max_{deaccel}*timestep$**

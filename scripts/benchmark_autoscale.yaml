@@ -1,6 +1,6 @@
 # benchmark_cluster.yaml script — running the benchmark experiments
 
-# An unique identifier for the head node and workers of this cluster.
+# A unique identifier for the head node and workers of this cluster.
 #cluster_name: test #<YOUR NAME>
 
 # The minimum number of workers nodes to launch in addition to the head

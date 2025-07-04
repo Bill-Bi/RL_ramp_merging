@@ -1,4 +1,4 @@
-"""Empty init file to ensure documentation for the network is created."""
+"""Empty init file to ensure documentation for the network module is created."""
 
 from flow.core.kernel.network.base import BaseKernelNetwork
 from flow.core.kernel.network.traci import TraCIKernelNetwork

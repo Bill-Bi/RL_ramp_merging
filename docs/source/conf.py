@@ -208,4 +208,5 @@ numpydoc_use_plotsv = True
 numpydoc_show_class_members = False
 numpydoc_show_inherited_class_members = True
 numpydoc_class_members_toctree = True
-numpydoc_use_blockquotes = Trueautodoc_mock_imports = ["django"]
+numpydoc_use_blockquotes = True
+autodoc_mock_imports = ["django"]

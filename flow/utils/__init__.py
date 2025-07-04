@@ -1,4 +1,4 @@
-"""empty init file to ensure documentation for utils is created."""
+"""Empty init file to ensure documentation for the utils module is created."""
 
 from flow.utils.exceptions import FatalFlowError
 

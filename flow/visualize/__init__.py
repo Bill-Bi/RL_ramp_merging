@@ -1,1 +1,1 @@
-"""Empty init file to ensure documentation for visualizers is created."""
+"""Empty init file to ensure documentation for the visualizers module is created."""

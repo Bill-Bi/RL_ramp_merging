@@ -1,3 +1,4 @@
+# List of required Python packages for this project
 gym==0.14.0
 numpy==1.18.4
 scipy==1.1.0
