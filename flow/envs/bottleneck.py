@@ -1,5 +1,5 @@
 """
-Environments for training vehicles to reduce capacity drops in a bottleneck.
+Environments for training vehicles to reduce capacity drops in bottleneck networks.
 
 This environment was used in:
 

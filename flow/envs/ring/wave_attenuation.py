@@ -1,5 +1,5 @@
 """
-Environment used to train a stop-and-go dissipating controller.
+Environment used to train a stop-and-go wave dissipating controller.
 
 This is the environment that was used in:
 

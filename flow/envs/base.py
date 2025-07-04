@@ -1,4 +1,4 @@
-"""Base environment class. This is the parent of all other environments."""
+"""Base environment class. This is the parent of all other environment classes."""
 
 from abc import ABCMeta, abstractmethod
 from copy import deepcopy

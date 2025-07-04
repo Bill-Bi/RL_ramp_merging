@@ -1,4 +1,4 @@
-"""Environments that can train both lane change and acceleration behaviors."""
+"""Environments that can train both lane change and acceleration behaviors in ring networks."""
 
 from flow.envs.ring.accel import AccelEnv
 from flow.core import rewards

@@ -1,4 +1,4 @@
-"""Base environment for the Bay Bridge."""
+"""Base environment for the Bay Bridge network."""
 import numpy as np
 from collections import defaultdict
 

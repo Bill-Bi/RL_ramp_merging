@@ -10,7 +10,7 @@ from flow.envs.ring.wave_attenuation import WaveAttenuationPOEnv as WAPOEnv
 @deprecated('flow.envs.loop.wave_attenuation',
             'flow.envs.ring.wave_attenuation.WaveAttenuationEnv')
 class WaveAttenuationEnv(WAEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass
 
@@ -18,6 +18,6 @@ class WaveAttenuationEnv(WAEnv):
 @deprecated('flow.envs.loop.wave_attenuation',
             'flow.envs.ring.wave_attenuation.WaveAttenuationPOEnv')
 class WaveAttenuationPOEnv(WAPOEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass

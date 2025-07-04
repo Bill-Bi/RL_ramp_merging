@@ -10,7 +10,7 @@ from flow.envs.ring.lane_change_accel import LaneChangeAccelPOEnv as LCPOEnv
 @deprecated('flow.envs.loop.lane_changing',
             'flow.envs.ring.lane_change_accel.LaneChangeAccelEnv')
 class LaneChangeAccelEnv(LCEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass
 
@@ -18,6 +18,6 @@ class LaneChangeAccelEnv(LCEnv):
 @deprecated('flow.envs.loop.lane_changing',
             'flow.envs.ring.lane_change_accel.LaneChangeAccelPOEnv')
 class LaneChangeAccelPOEnv(LCPOEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass

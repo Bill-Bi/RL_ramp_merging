@@ -8,6 +8,6 @@ from flow.envs.base import Env as BaseEnv
 
 @deprecated('flow.envs.base_env', 'flow.envs.base.Env')
 class Env(BaseEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass

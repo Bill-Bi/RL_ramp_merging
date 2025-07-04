@@ -11,7 +11,7 @@ from flow.envs.traffic_light_grid import TrafficLightGridTestEnv as TLGTEnv
 @deprecated('flow.envs.green_wave_env',
             'flow.envs.traffic_light_grid.TrafficLightGridEnv')
 class TrafficLightGridEnv(TLGEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass
 
@@ -19,7 +19,7 @@ class TrafficLightGridEnv(TLGEnv):
 @deprecated('flow.envs.green_wave_env',
             'flow.envs.traffic_light_grid.TrafficLightGridPOEnv')
 class PO_TrafficLightGridEnv(TLGPOEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass
 
@@ -27,6 +27,6 @@ class PO_TrafficLightGridEnv(TLGPOEnv):
 @deprecated('flow.envs.green_wave_env',
             'flow.envs.traffic_light_grid.TrafficLightGridTestEnv')
 class GreenWaveTestEnv(TLGTEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass

@@ -1,4 +1,4 @@
-"""Environments for networks with traffic lights.
+"""Environments for networks with traffic light control.
 
 These environments are used to train traffic lights to regulate traffic flow
 through an n x m traffic light grid.

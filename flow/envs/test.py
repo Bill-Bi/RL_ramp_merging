@@ -1,4 +1,4 @@
-"""Test environment used to run simulations in the absence of autonomy."""
+"""Test environment used to run simulations in the absence of autonomous vehicles."""
 
 from flow.envs.base import Env
 from gym.spaces.box import Box

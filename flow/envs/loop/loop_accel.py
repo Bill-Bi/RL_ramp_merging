@@ -9,6 +9,6 @@ from flow.envs.ring.accel import AccelEnv as AEnv
 @deprecated('flow.envs.loop.accel',
             'flow.envs.ring.accel.AccelEnv')
 class AccelEnv(AEnv):
-    """See parent class."""
+    """See parent class definition."""
 
     pass
