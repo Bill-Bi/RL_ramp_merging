@@ -1,4 +1,4 @@
-"""Utility method for registering environments with OpenAI gym."""
+"""Utility method for registering environments with OpenAI gym framework."""
 
 import gym
 from gym.envs.registration import register

@@ -1,4 +1,4 @@
-"""Script containing the Flow kernel object for interacting with simulators."""
+"""Script containing the Flow kernel object for interacting with traffic simulators."""
 
 import warnings
 from flow.core.kernel.simulation import TraCISimulation, AimsunKernelSimulation

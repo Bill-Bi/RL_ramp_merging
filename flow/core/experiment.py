@@ -1,4 +1,4 @@
-"""Contains an experiment class for running simulations."""
+"""Contains an experiment class for running traffic simulations."""
 from flow.utils.registry import make_create_env
 from datetime import datetime
 import logging

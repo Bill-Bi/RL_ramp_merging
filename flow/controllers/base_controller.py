@@ -1,4 +1,4 @@
-"""Contains the base acceleration controller class."""
+"""Contains the base acceleration controller class for vehicle control."""
 
 from abc import ABCMeta, abstractmethod
 import numpy as np

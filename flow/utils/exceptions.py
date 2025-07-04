@@ -1,4 +1,4 @@
-"""Flow-specific exceptions."""
+"""Flow-specific exception classes."""
 
 
 class FatalFlowError(Exception):

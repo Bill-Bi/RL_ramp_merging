@@ -1,4 +1,4 @@
-"""A collection of utility functions for Flow."""
+"""A collection of utility functions for the Flow framework."""
 
 import csv
 import errno

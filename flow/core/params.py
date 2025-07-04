@@ -1,4 +1,4 @@
-"""Objects that define the various meta-parameters of an experiment."""
+"""Objects that define the various meta-parameters of experiments."""
 
 import logging
 import collections

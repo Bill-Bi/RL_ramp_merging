@@ -1,4 +1,4 @@
-"""Warnings that may be printed by Flow (e.g. deprecation warnings)."""
+"""Warnings that may be printed by Flow (e.g. deprecation warning messages)."""
 
 import functools
 import inspect

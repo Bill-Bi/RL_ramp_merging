@@ -1,4 +1,4 @@
-"""Contains the ring road scenario class."""
+"""Contains the ring road network class."""
 
 from flow.networks.base import Network
 from flow.core.params import InitialConfig

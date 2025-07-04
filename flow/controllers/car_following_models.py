@@ -1,5 +1,5 @@
 """
-Contains several custom car-following control models.
+Contains several custom car-following control model implementations.
 
 These controllers can be used to modify the acceleration behavior of vehicles
 in Flow to match various prominent car-following models that can be calibrated.

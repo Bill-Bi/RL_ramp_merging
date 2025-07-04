@@ -1,4 +1,4 @@
-"""A series of reward functions."""
+"""A series of reward function implementations."""
 
 import numpy as np
 
